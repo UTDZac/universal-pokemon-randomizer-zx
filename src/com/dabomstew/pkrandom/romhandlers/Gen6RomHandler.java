@@ -2882,7 +2882,7 @@ public class Gen6RomHandler extends Abstract3DSRomHandler {
     }
 
     @Override
-    public ItemList getAllowedItems () {
+    public ItemList getAllowedItems() {
         return allowedItems;
     }
 

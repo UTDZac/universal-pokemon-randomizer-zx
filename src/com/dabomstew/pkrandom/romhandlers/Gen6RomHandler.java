@@ -2882,13 +2882,24 @@ public class Gen6RomHandler extends Abstract3DSRomHandler {
     }
 
     @Override
-    public ItemList getAllowedItems() {
+    public ItemList getAllowedItems () {
         return allowedItems;
     }
 
     @Override
     public ItemList getNonBadItems() {
         return nonBadItems;
+    }
+
+    @Override
+    public void banMegaStoneItems(ItemList items, boolean banBadItems) {
+        items.banRange(685, 30); // Gengarite(656) - Latiosite(685)
+
+        // If incoming list is the "ban bad items" list, then items beyond 717 are automatically excluded
+        if (!banBadItems && romEntry.romType == Gen6Constants.Type_ORAS) {
+            items.banRange(752, 13); // Swampertite(752) - Diancite(764)
+            items.banRange(767, 4); // Cameruptite(767) - Beedrilite(770)
+        }
     }
 
     @Override

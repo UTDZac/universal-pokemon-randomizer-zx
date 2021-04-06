@@ -2793,6 +2793,11 @@ public class Gen5RomHandler extends AbstractDSRomHandler {
     }
 
     @Override
+    public void banMegaStoneItems(ItemList items, boolean banBadItems) {
+        return; // Not implemented
+    }
+
+    @Override
     public List<Integer> getRegularShopItems() {
         return regularShopItems;
     }

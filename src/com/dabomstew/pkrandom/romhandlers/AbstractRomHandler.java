@@ -4071,9 +4071,15 @@ public abstract class AbstractRomHandler implements RomHandler {
     @Override
     public void randomizeFieldItems(Settings settings) {
         boolean banBadItems = settings.isBanBadRandomFieldItems();
+        boolean banMegaStoneItems = settings.isBanMegaStoneRandomFieldItems();
         boolean distributeItemsControl = settings.getFieldItemsMod() == Settings.FieldItemsMod.RANDOM_EVEN;
 
         ItemList possibleItems = banBadItems ? this.getNonBadItems() : this.getAllowedItems();
+
+        if (banMegaStoneItems && this.hasMegaEvolutions()) {
+            this.banMegaStoneItems(possibleItems, banBadItems);
+        }
+
         List<Integer> currentItems = this.getRegularFieldItems();
         List<Integer> currentTMs = this.getCurrentFieldTMs();
         List<Integer> requiredTMs = this.getRequiredFieldTMs();

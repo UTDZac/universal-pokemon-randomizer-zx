@@ -37,6 +37,7 @@ import java.util.regex.Pattern;
 import com.dabomstew.pkrandom.*;
 import com.dabomstew.pkrandom.constants.GBConstants;
 import com.dabomstew.pkrandom.constants.Gen2Constants;
+import com.dabomstew.pkrandom.constants.Gen6Constants;
 import com.dabomstew.pkrandom.constants.GlobalConstants;
 import com.dabomstew.pkrandom.constants.Species;
 import com.dabomstew.pkrandom.exceptions.RandomizerIOException;
@@ -1871,6 +1872,11 @@ public class Gen2RomHandler extends AbstractGBCRomHandler {
     @Override
     public ItemList getNonBadItems() {
         return nonBadItems;
+    }
+
+    @Override
+    public void banMegaStoneItems(ItemList items, boolean banBadItems) {
+        return; // Not implemented
     }
 
     @Override

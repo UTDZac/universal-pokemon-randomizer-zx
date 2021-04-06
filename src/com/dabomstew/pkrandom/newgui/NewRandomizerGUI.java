@@ -185,6 +185,7 @@ public class NewRandomizerGUI {
     private JRadioButton fiRandomRadioButton;
     private JRadioButton fiRandomEvenDistributionRadioButton;
     private JCheckBox fiBanBadItemsCheckBox;
+    private JCheckBox fiBanMegaStoneItemsCheckBox;
     private JRadioButton shUnchangedRadioButton;
     private JRadioButton shShuffleRadioButton;
     private JRadioButton shRandomRadioButton;
@@ -1461,6 +1462,7 @@ public class NewRandomizerGUI {
         fiShuffleRadioButton.setSelected(settings.getFieldItemsMod() == Settings.FieldItemsMod.SHUFFLE);
         fiUnchangedRadioButton.setSelected(settings.getFieldItemsMod() == Settings.FieldItemsMod.UNCHANGED);
         fiBanBadItemsCheckBox.setSelected(settings.isBanBadRandomFieldItems());
+        fiBanMegaStoneItemsCheckBox.setSelected(settings.isBanMegaStoneRandomFieldItems());
 
         shRandomRadioButton.setSelected(settings.getShopItemsMod() == Settings.ShopItemsMod.RANDOM);
         shShuffleRadioButton.setSelected(settings.getShopItemsMod() == Settings.ShopItemsMod.SHUFFLE);
@@ -1643,6 +1645,7 @@ public class NewRandomizerGUI {
 
         settings.setFieldItemsMod(fiUnchangedRadioButton.isSelected(), fiShuffleRadioButton.isSelected(), fiRandomRadioButton.isSelected(), fiRandomEvenDistributionRadioButton.isSelected());
         settings.setBanBadRandomFieldItems(fiBanBadItemsCheckBox.isSelected());
+        settings.setBanMegaStoneRandomFieldItems(fiBanMegaStoneItemsCheckBox.isSelected());
 
         settings.setShopItemsMod(shUnchangedRadioButton.isSelected(), shShuffleRadioButton.isSelected(), shRandomRadioButton.isSelected());
 
@@ -2306,6 +2309,9 @@ public class NewRandomizerGUI {
         fiBanBadItemsCheckBox.setVisible(true);
         fiBanBadItemsCheckBox.setEnabled(false);
         fiBanBadItemsCheckBox.setSelected(false);
+        fiBanMegaStoneItemsCheckBox.setVisible(true);
+        fiBanMegaStoneItemsCheckBox.setEnabled(false);
+        fiBanMegaStoneItemsCheckBox.setSelected(false);
         shUnchangedRadioButton.setVisible(true);
         shUnchangedRadioButton.setEnabled(false);
         shUnchangedRadioButton.setSelected(false);
@@ -2666,6 +2672,7 @@ public class NewRandomizerGUI {
             fiShuffleRadioButton.setEnabled(true);
             fiRandomRadioButton.setEnabled(true);
             fiRandomEvenDistributionRadioButton.setEnabled(true);
+            fiBanMegaStoneItemsCheckBox.setVisible(romHandler.hasMegaEvolutions());
 
             shopItemsPanel.setVisible(romHandler.hasShopRandomization());
             shUnchangedRadioButton.setEnabled(true);
@@ -3215,12 +3222,16 @@ public class NewRandomizerGUI {
 
         if (fiRandomRadioButton.isSelected() && fiRandomRadioButton.isVisible() && fiRandomRadioButton.isEnabled()) {
             fiBanBadItemsCheckBox.setEnabled(true);
+            fiBanMegaStoneItemsCheckBox.setEnabled(true);
         } else if (fiRandomEvenDistributionRadioButton.isSelected() && fiRandomEvenDistributionRadioButton.isVisible()
                 && fiRandomEvenDistributionRadioButton.isEnabled()) {
             fiBanBadItemsCheckBox.setEnabled(true);
+            fiBanMegaStoneItemsCheckBox.setEnabled(true);
         } else {
             fiBanBadItemsCheckBox.setEnabled(false);
             fiBanBadItemsCheckBox.setSelected(false);
+            fiBanMegaStoneItemsCheckBox.setEnabled(false);
+            fiBanMegaStoneItemsCheckBox.setSelected(false);
         }
 
         if (shRandomRadioButton.isSelected() && shRandomRadioButton.isVisible() && shRandomRadioButton.isEnabled()) {

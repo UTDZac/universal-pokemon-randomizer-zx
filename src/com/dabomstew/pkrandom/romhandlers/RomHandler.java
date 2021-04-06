@@ -407,6 +407,8 @@ public interface RomHandler {
 
     ItemList getNonBadItems();
 
+    void banMegaStoneItems(ItemList items, boolean banBadItems);
+
     List<Integer> getRegularShopItems();
 
     List<Integer> getOPShopItems();

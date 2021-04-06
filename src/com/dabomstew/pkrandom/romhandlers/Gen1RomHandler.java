@@ -1857,6 +1857,11 @@ public class Gen1RomHandler extends AbstractGBCRomHandler {
     }
 
     @Override
+    public void banMegaStoneItems(ItemList items, boolean banBadItems) {
+        return; // Not implemented
+    }
+
+    @Override
     public List<Integer> getRegularShopItems() {
         return null; // Not implemented
     }

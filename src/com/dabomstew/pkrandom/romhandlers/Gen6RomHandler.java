@@ -2893,7 +2893,7 @@ public class Gen6RomHandler extends Abstract3DSRomHandler {
 
     @Override
     public void banMegaStoneItems(ItemList items, boolean banBadItems) {
-        items.banRange(685, 30); // Gengarite(656) - Latiosite(685)
+        items.banRange(656, 30); // Gengarite(656) - Latiosite(685)
 
         // If incoming list is the "ban bad items" list, then items beyond 717 are automatically excluded
         if (!banBadItems && romEntry.romType == Gen6Constants.Type_ORAS) {

@@ -2665,7 +2665,7 @@ public class Gen7RomHandler extends Abstract3DSRomHandler {
 
     @Override
     public void banMegaStoneItems(ItemList items, boolean banBadItems) {
-        items.banRange(685, 30); // Gengarite(656) - Latiosite(685)
+        items.banRange(656, 30); // Gengarite(656) - Latiosite(685)
         items.banRange(752, 13); // Swampertite(752) - Diancite(764)
         items.banRange(767, 4); // Cameruptite(767) - Beedrilite(770)
     }
